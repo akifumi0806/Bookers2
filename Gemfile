@@ -65,3 +65,9 @@ gem 'devise'
 gem 'bootstrap-sass'
 
 gem 'jquery-rails'
+
+gem 'carrierwave'
+gem 'initial_avatar'
+
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
