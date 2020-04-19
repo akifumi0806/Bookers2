@@ -1,0 +1,17 @@
+<div class="col-md-3">
+			<h2>User info</h2>
+              <p><%= attachment_image_tag user, :image,　format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %></p>
+
+      <table class="table">
+      <tbody>
+        <tr>
+          <th>name</th>
+          <th><%= user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= user.introduction %></th>
+        </tr>
+      </tbody>
+      </table>
+<%= link_to "プロフィール編集", edit_user_path(current_user.id), class: "btn btn-primary btn-lg btn-block" %>

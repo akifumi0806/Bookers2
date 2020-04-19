@@ -11,15 +11,15 @@
 
   <body>
         <header>
-            <nav class="navbar navbar-dark" style="background-color: black;">
-                <span class="navbar-brand mb-0 h1">Bookers</span>
+            <nav class="navbar navbar-fixed-top navbar-inverse" style="background-color: black;">
+                <span class="nav navbar-nav navbar-left">Bookers</span>
                 <% if user_signed_in? %>
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav navbar-right">
                         <li><%= link_to 'Home', "#" %></li>
                         <li><%= link_to 'Users', edit_user_registration_path %></li>
                         <li><%= link_to 'Books', "#" %></li>
                         <li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
-                    </ul>>
+                    </ul>
                     
             <% else %>
                     <ul class="navbar-nav mr-auto">

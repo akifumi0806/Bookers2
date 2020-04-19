@@ -1,14 +1,16 @@
 <div class="toppage">
   <div class="container">
     <div class="toppage_contents">
+    	<div class="top-message col-md-offset-3 col-md-6">
 			<h1 class="welcome">welcome to 	<span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers !!</h1>
 				<p>
 					In 	<span class="glyphicon glyphicon-book" aria-hidden="true"></span><strong>Bookers</strong>,<br>
 					you can share and exchange your opinions , inpressions , and emotions<br>
 					about various books!
 				</p>
-				<%= link_to "Log in", books_index_path, class: "btn btn-infomation btn-lg btn-block" %>
-				<%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-lg btn-block" %>
+				<%= link_to "Log in", new_user_session_path, class: "btn btn-info col-xs-10 col-xs-offset-1 sign_in" %>
+				<%= link_to "Sign up", new_user_registration_path, class: "btn btn-success col-xs-10 col-xs-offset-1 sign_up" %>
+		</div>
 	</div>
   </div>
 </div>
