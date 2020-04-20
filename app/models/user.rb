@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :books, dependent: :destroy
 
+  validates :introduction, length: { minimum: 50 }
+
 end

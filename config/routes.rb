@@ -5,7 +5,6 @@ resources :books
   root to: 'top#index'
 
   resources :users, only: [:index, :edit, :update]
-
-
+  delete 'books/:id' => 'books#destroy', as: 'destroy_book'
 
 end
