@@ -11,10 +11,10 @@
 
   <body>
         <header>
-            <nav class="navbar navbar-fixed-top navbar-inverse" style="background-color: black;">
-                <span class="nav navbar-nav navbar-left">Bookers</span>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <span class="navbar-brand">Bookers</span>
                 <% if user_signed_in? %>
-                    <ul class="navbar-nav navbar-right">
+                    <ul class="navbar-nav">
                         <li><%= link_to 'Home', "#" %></li>
                         <li><%= link_to 'Users', edit_user_registration_path %></li>
                         <li><%= link_to 'Books', "#" %></li>
@@ -22,7 +22,7 @@
                     </ul>
                     
             <% else %>
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav">
                         <li><%= link_to 'Home', "#" %></li>
                         <li><%= link_to 'About', "#" %></li>
                         <li><%= link_to 'sign up', new_user_registration_path %></li>
