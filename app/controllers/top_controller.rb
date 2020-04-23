@@ -1,5 +1,8 @@
 class TopController < ApplicationController
-  def index
+  def home
   	@books = Book.all
+  end
+
+  def about
   end
 end

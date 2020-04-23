@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!, except: [:home, :about]
 	before_action :configure_permitted_parameters, if: :devise_controller?
   protected
   def configure_permitted_parameters
@@ -7,9 +8,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-  	if current_user
   		flash[:notice]
-        users_path
-    end
+      user_path(current_user.id)
   end
+
+
+
 end

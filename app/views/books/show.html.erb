@@ -1,3 +1,7 @@
+<% flash.each do |key, value| %>
+<%= content_tag :div, value, class: "flash flash-#{key}" %>
+<% end %>
+
 <div class="container">
 	<div class="row">
 
@@ -5,20 +9,24 @@
 
 <%= render 'users/newbook', book:Book.new %>
 
-    	<div class="col-md-9">
+    	<div class="col-xs-9">
     		<h2>Book detail</h2>
     			<table class = "table table-hover table-inverse">
   			
         
   				<tbody>
       					<tr>
-                    	<td><%= attachment_image_tag @user, :image,　format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %><br>
-                        <%=link_to users_path do %><%= @user.name %><% end %></td>
-        					    <td><%= @book.title %></td>
-              				<td><%= @book.body %></td>
-              				<td><%= link_to 'Edit', edit_book_path(@book.id), class: "btn-sm btn-success" %></td>
-              				<td><%= link_to 'Destroy', destroy_book_path(@book.id), method: :delete,  class: "btn-sm btn-danger" %></td>
+                    	<td><%= link_to user_path(@userbook.user) do %><%= attachment_image_tag @user, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %><% end %><br>
+                        <%= link_to user_path(@userbook.user) do %><%= @user.name %><% end %></td>
+        					    <td><%= @userbook.title %></td>
+              				<td><%= @userbook.body %></td>
+              				<td><% if @user == current_user %>
+                        <%= link_to 'Edit', edit_book_path(@userbook.id), class: "btn-sm btn-success" %></td>
+              				<td><%= link_to 'Destroy', destroy_book_path(@userbook.id), method: :delete,  class: "btn-sm btn-danger" %></td>
             			</tr>
+                  <% end %>
  				</tbody>
 				</table>
     	</div>
+    </div>
+  </div>

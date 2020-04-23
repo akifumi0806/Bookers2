@@ -11,22 +11,27 @@
 
   <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-fixed-top navbar-inverse">
                 <span class="navbar-brand">Bookers</span>
                 <% if user_signed_in? %>
-                    <ul class="navbar-nav">
-                        <li><%= link_to 'Home', "#" %></li>
-                        <li><%= link_to 'Users', edit_user_registration_path %></li>
-                        <li><%= link_to 'Books', "#" %></li>
-                        <li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
+                    <div class="container">
+                    <ul class="navbar-nav navbar-right">
+                        <li><%= link_to 'Home', user_path(current_user), class: "glyphicon glyphicon-home home" %></li>
+                        <li><%= link_to 'Users', users_path, class: "glyphicon glyphicon-user users" %></li>
+                        <li><%= link_to 'Books', books_path, class: "glyphicon glyphicon-book books" %></li>
+                        <li><%= link_to 'logout', destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %></li>
                     </ul>
+                    </div>
                     
             <% else %>
-                    <ul class="navbar-nav">
-                        <li><%= link_to 'Home', "#" %></li>
-                        <li><%= link_to 'About', "#" %></li>
-                        <li><%= link_to 'sign up', new_user_registration_path %></li>
-                        <li><%= link_to 'login', new_user_session_path %></li>
+                    <div class="container">
+                    <ul class="navbar-nav navbar-right">
+                        <li><%= link_to 'Home', root_path, class: "glyphicon glyphicon-home home" %></li>
+                        <li><%= link_to 'About', home_about_path, class: "glyphicon glyphicon-link about" %></li>
+                        <li><%= link_to 'sign up', new_user_registration_path, class: "glyphicon glyphicon-edit sign_up" %></li>
+                        <li><%= link_to 'login', new_user_session_path, class: "glyphicon glyphicon-log-in sign_in" %></li>
+                    </ul>
+                    </div>
                 <% end %>
             </nav>
         </header>
@@ -34,6 +39,10 @@
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
 
+        
         <%= yield %>
+        <div class="col-xs-3 col-xs-offset-9">
+            <p>CopyRight Infratop.inc</p>
+        </div>
   </body>
 </html>

@@ -1,8 +1,20 @@
+
+
 <div class="container">
 
 		<div class="col-md-6 col-md-offset-3">
 
-		<h2>Edit Book</h2>
+		<h2>Editing Book</h2>
+        <% if @book.errors.any? %>
+            <div class="alert alert-warning">
+                <ul>
+                    <%= @book.errors.count%>errors prohibited this obj from being saved:
+                    <% @book.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
 			<%= form_for(@book) do |f| %>
 
 			<div class="row">
@@ -19,8 +31,8 @@
     		<%= f.submit 'Update Book', class: "btn btn-primary btn-lg btn-block" %>
 			<% end %>
 
-			<%=link_to 'show', book_path %>
+			<%=link_to 'Show', book_path %>
 			|
-			<%=link_to 'back', users_path %>
+			<%=link_to 'Back', books_path %>
     	</div>
 </div>
