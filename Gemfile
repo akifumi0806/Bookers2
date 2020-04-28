@@ -73,3 +73,8 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 gem 'pry-rails'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
