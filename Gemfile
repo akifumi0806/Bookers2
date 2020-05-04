@@ -66,6 +66,8 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 
+gem 'font_awesome5_rails'
+
 gem 'carrierwave'
 gem 'initial_avatar'
 

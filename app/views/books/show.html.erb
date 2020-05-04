@@ -20,11 +20,55 @@
                         <%= link_to user_path(@userbook.user) do %><%= @user.name %><% end %></td>
         					    <td><%= @userbook.title %></td>
               				<td><%= @userbook.body %></td>
+
+                      <td>
+                        <% if @userbook.favorited_by?(current_user) %>
+                          <%= link_to book_favorites_path(@userbook), method: :delete do %>
+                            <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+                            <%= @userbook.favorites.count %>
+                          <% end %>
+                         <% else %>
+
+                          <%= link_to book_favorites_path(@userbook), method: :post do %>
+                            <i class="fa fa-heart" aria-hidden="true" ></i>
+                            <%= @userbook.favorites.count %>
+                          <% end %>
+                        
+                        <% end %>
+                      </td>
+                      <td>コメント数:<a heef="#comment"><%= @userbook.book_comments.count %></a></td>
+                        <div class="comment-list bt style-2" id="comments">
+                          <div class="float-wrapper">
+                            <h2 class="comment-count"><%= @userbook.book_comments.count %>件コメント</h2>
+                        </div>
+
               				<td><% if @user == current_user %>
                         <%= link_to 'Edit', edit_book_path(@userbook.id), class: "btn-sm btn-success" %></td>
-              				<td><%= link_to 'Destroy', destroy_book_path(@userbook.id), method: :delete,  class: "btn-sm btn-danger" %></td>
+              				<td><%= link_to 'Destroy', book_path(@userbook.id), method: :delete,  class: "btn-sm btn-danger" %></td>
             			</tr>
                   <% end %>
+                <ol>
+                  <% @userbook.book_comments.each do |book_comment| %>
+                    <li class="comment">
+                      <div class="comment-body bb">
+                      <div class="comment-text">
+                      <div class="comment-author clearfix">
+                        <a href="#" class="link-author"><%= book_comment.user.name %></a>
+                      </div>
+                      <div class="comment-entry"><%= book_comment.comment %></div>
+                      </div>
+                      </div>
+                    </li>
+                  <% end %>
+                </ol>
+                <%= form_for [@userbook,@book_comment] do |f| %>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+                    </div>
+                  </div>
+                <%= f.submit "送信", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+                <% end %>
  				</tbody>
 				</table>
     	</div>

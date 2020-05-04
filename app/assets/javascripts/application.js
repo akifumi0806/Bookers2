@@ -15,8 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-var title = "javascriptが使えました"
-alert(title);
+
 
 $(document).ready(function(){
 	$('.jquery').on('click', function(){
@@ -27,7 +26,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$("#theTarget").skippr({
 		transition : 'slide',
-		speed : 1000,
+		speed : 2000,
 		easing : 'easeOutQuart',
 		navtype : 'block',
 		childrenElementType : 'div',

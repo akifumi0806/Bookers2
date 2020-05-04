@@ -1,6 +1,6 @@
 class TopController < ApplicationController
   def home
-  	@books = Book.all
+  	@books = Book.new
   end
 
   def about
