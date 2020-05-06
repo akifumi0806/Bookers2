@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 		@book = Book.new
 		@books = Book.all
 		@user = current_user
-
 	end
 
 	def show
@@ -26,7 +25,6 @@ class UsersController < ApplicationController
 			render :edit
 		end
 	end
-
 private
     def user_params
     params.require(:user).permit(:name, :introduction, :image)
