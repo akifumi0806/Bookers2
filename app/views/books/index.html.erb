@@ -10,11 +10,12 @@
     </ul>
   </div>
 <% end %>
+    <div class="col-xs-3">
 		  <%= render 'users/userinfo', user:current_user %>
 
       <h2>New book</h2>
 			<%= render 'users/newbook', book:@book %>
-
+    </div>
     	<div class="col-xs-9">
     		<h2>Books</h2>
     			<table class = "table table-hover table-inverse">
@@ -55,3 +56,5 @@
  					</tbody>
 				</table>
     	</div>
+    </div>
+  </div>

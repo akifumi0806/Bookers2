@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   post 'follow/:id' => 'relationships#create', as: "follow"
   post 'unfollow/:id' => 'relationships#destroy', as: 'unfollow'
+
+    get "search" => "searches#search"
 end

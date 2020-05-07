@@ -11,7 +11,4 @@ class ApplicationController < ActionController::Base
   		flash[:notice]
       user_path(current_user.id)
   end
-
-
-
 end
