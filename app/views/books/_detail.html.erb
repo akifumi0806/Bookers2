@@ -1,0 +1,32 @@
+<table class = "table table-hover table-inverse">
+  			
+        
+  				<tbody>
+            <div class="row">
+      					<tr>
+                    	<td><%= link_to user_path(book.user) do %><%= attachment_image_tag book.user, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %><% end %><br>
+                        <%= link_to user_path(book.user) do %><%= book.user.name %><% end %></td>
+        					    <td><%= book.title %></td>
+              				<td><%= book.body %></td>
+
+                      <td>
+                        <div id="favorites_buttons_<%= book.id %>">
+                        <%= render partial: 'favorites/favorite', locals: { book: book} %>
+                       </div>
+                      </td>
+                      <td class="comment-count">コメント数: <%= book.book_comments.count %>
+                        <%#><%= render 'book_comments/quanity', book: book.user %>
+                        </td>
+                        <div class="comment-list bt style-2" id="comments">
+                          <div class="float-wrapper">
+                            <h2 class="comment-count"><%= book.book_comments.count %>件コメント</h2>
+                        </div>
+
+              				<td><% if book.user == current_user %>
+                        <%= link_to 'Edit', edit_book_path(book.id), class: "btn-sm btn-success" %></td>
+              				<td><%= link_to 'Destroy', book_path(book.id), method: :delete,  class: "btn-sm btn-danger" %></td>
+            			</tr>
+                  <% end %>
+            </div>
+          </tbody>
+          </table>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   	resource :book_comments, only: [:create]
   end
 
+  resources :book_comments, only: [:destroy]
+
    get 'users/:id/followers', to: 'relationships#followers', as: "followers"
    get 'users/:id/follows', to: 'relationships#follows', as: "follows"
 
